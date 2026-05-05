@@ -36,7 +36,7 @@ public class ProfileService {
         ProfileEntity newProfile = toEntity(profileDTO);
         newProfile.setActivationToken(UUID.randomUUID().toString());
         newProfile = profileRepository.save(newProfile);
-
+        return toDTO( newProfile);
         //send activation link
 //
 //        String activationLink = activationURL+"/api/v1.0/activate?token=" + newProfile.getActivationToken();
@@ -49,7 +49,7 @@ public class ProfileService {
 ////            System.out.println("Email failed but ignored: " + e.getMessage());
 ////        }
 
-       return toDTO( newProfile);
+
 
     }
 
