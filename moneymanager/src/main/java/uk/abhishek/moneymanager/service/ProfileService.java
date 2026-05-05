@@ -38,16 +38,16 @@ public class ProfileService {
         newProfile = profileRepository.save(newProfile);
 
         //send activation link
-
-        String activationLink = activationURL+"/api/v1.0/activate?token=" + newProfile.getActivationToken();
-        String  subject = "Activate your Money Manager account";
-        String body = "Click on the following link to activate your account:" + activationLink;
-//        emailService.sendEmail(newProfile.getEmail(), subject,body);
-        try {
-            emailService.sendEmail(newProfile.getEmail(), subject, body);
-        } catch (Exception e) {
-            System.out.println("Email failed but ignored: " + e.getMessage());
-        }
+//
+//        String activationLink = activationURL+"/api/v1.0/activate?token=" + newProfile.getActivationToken();
+//        String  subject = "Activate your Money Manager account";
+//        String body = "Click on the following link to activate your account:" + activationLink;
+////        emailService.sendEmail(newProfile.getEmail(), subject,body);
+////        try {
+////            emailService.sendEmail(newProfile.getEmail(), subject, body);
+////        } catch (Exception e) {
+////            System.out.println("Email failed but ignored: " + e.getMessage());
+////        }
 
        return toDTO( newProfile);
 
