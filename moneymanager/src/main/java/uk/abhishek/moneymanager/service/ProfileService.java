@@ -36,10 +36,11 @@ public class ProfileService {
     @Transactional
     public ProfileDTO registerProfile(ProfileDTO profileDTO)
     {
-        ProfileEntity newProfile = toEntity(profileDTO);
-        newProfile.setActivationToken(UUID.randomUUID().toString());
-        newProfile = profileRepository.save(newProfile);
-        return toDTO( newProfile);
+        return profileDTO;
+//        ProfileEntity newProfile = toEntity(profileDTO);
+//        newProfile.setActivationToken(UUID.randomUUID().toString());
+//        newProfile = profileRepository.save(newProfile);
+//        return toDTO( newProfile);
         //send activation link
 //
 //        String activationLink = activationURL+"/api/v1.0/activate?token=" + newProfile.getActivationToken();
