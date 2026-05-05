@@ -20,7 +20,7 @@ public class ProfileDTO {
     private String email;
     private  String password;
     private  String profileImageUrl;
-    private LocalDateTime createdAt;
-    private  LocalDateTime updatedAt;
+//    private LocalDateTime createdAt;
+//    private  LocalDateTime updatedAt;
 }
 
