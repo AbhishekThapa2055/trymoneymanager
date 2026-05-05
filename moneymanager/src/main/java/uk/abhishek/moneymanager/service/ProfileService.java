@@ -1,5 +1,6 @@
 package uk.abhishek.moneymanager.service;
 
+
 import lombok.RequiredArgsConstructor;
 import org.jspecify.annotations.Nullable;
 import org.springframework.beans.factory.annotation.Value;
@@ -10,6 +11,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import uk.abhishek.moneymanager.dto.AuthDTO;
 import uk.abhishek.moneymanager.dto.ProfileDTO;
 import uk.abhishek.moneymanager.entity.ProfileEntity;
@@ -24,13 +26,14 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class ProfileService {
     private final ProfileRepository profileRepository;
-    private  final EmailService emailService;
+//    private  final EmailService emailService;
     private final PasswordEncoder passwordEncoder;
     private final AuthenticationManager authenticationManager;
     private final JwtUtil jwtUtil;
 
     @Value("${app.activation.url}")
     private String activationURL;
+    @Transactional
     public ProfileDTO registerProfile(ProfileDTO profileDTO)
     {
         ProfileEntity newProfile = toEntity(profileDTO);
@@ -62,8 +65,8 @@ public class ProfileService {
                 .email(profileDTO.getEmail())
                 .password(passwordEncoder.encode(profileDTO.getPassword()))
                 .profileImageUrl(profileDTO.getProfileImageUrl())
-                .createdAt(profileDTO.getCreatedAt())
-                .updatedAt(profileDTO.getUpdatedAt())
+//                .createdAt(profileDTO.getCreatedAt())
+//                .updatedAt(profileDTO.getUpdatedAt())
                 .build();
 
     }
@@ -75,8 +78,8 @@ public class ProfileService {
                 .fullName(profileEntity.getFullName())
                 .email(profileEntity.getEmail())
                 .profileImageUrl(profileEntity.getProfileImageUrl())
-                .createdAt(profileEntity.getCreatedAt())
-                .updatedAt(profileEntity.getUpdatedAt())
+//                .createdAt(profileEntity.getCreatedAt())
+//                .updatedAt(profileEntity.getUpdatedAt())
                 .build();
 
     }
@@ -123,8 +126,8 @@ public class ProfileService {
                 .fullName(currentUser.getFullName())
                 .email(currentUser.getEmail())
                 .profileImageUrl(currentUser.getProfileImageUrl())
-                .createdAt(currentUser.getCreatedAt())
-                .updatedAt(currentUser.getUpdatedAt())
+//                .createdAt(currentUser.getCreatedAt())
+//                .updatedAt(currentUser.getUpdatedAt())
                 .build();
     }
 
