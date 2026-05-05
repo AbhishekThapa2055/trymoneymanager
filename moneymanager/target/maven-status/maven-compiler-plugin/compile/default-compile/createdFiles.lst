@@ -39,7 +39,6 @@ uk\abhishek\moneymanager\controller\HomeController.class
 uk\abhishek\moneymanager\controller\ExpenseController.class
 uk\abhishek\moneymanager\entity\IncomeEntity.class
 uk\abhishek\moneymanager\dto\CategoryDTO.class
-uk\abhishek\moneymanager\service\EmailService.class
 uk\abhishek\moneymanager\service\ExpenseService.class
 uk\abhishek\moneymanager\dto\ExpenseDTO.class
 uk\abhishek\moneymanager\service\ProfileService.class
