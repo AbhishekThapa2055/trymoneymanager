@@ -16,13 +16,13 @@ import java.util.Map;
 public class ProfileController {
     private final ProfileService profileService;
     @PostMapping("/register")
-    public ResponseEntity<String> registerProfile(@RequestBody ProfileDTO profileDTO)
+    public ResponseEntity<ProfileDTO> registerProfile(@RequestBody ProfileDTO profileDTO)
     {
         System.out.println("STEP 1: Controller hit");
         ProfileDTO registeredProfile = profileService.registerProfile(profileDTO);
         System.out.println("STEP 2: After service");
-//        return ResponseEntity.status(HttpStatus.CREATED).body(registeredProfile);
-        return ResponseEntity.ok("SUCCESS");
+        return ResponseEntity.status(HttpStatus.CREATED).body(registeredProfile);
+//        return ResponseEntity.ok("SUCCESS");
     }
 
     @GetMapping("/activate")
