@@ -33,7 +33,7 @@ public class ProfileService {
 
     @Value("${app.activation.url}")
     private String activationURL;
-    @Transactional
+//    @Transactional
     public ProfileDTO registerProfile(ProfileDTO profileDTO)
     {
 
