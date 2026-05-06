@@ -39,7 +39,7 @@ public class ProfileService {
 
         ProfileEntity newProfile = toEntity(profileDTO);
         newProfile.setActivationToken(UUID.randomUUID().toString());
-        newProfile = profileRepository.save(newProfile);
+        newProfile = profileRepository.saveAndFlush(newProfile);
         return toDTO( newProfile);
         //send activation link
 //
